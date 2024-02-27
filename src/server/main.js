@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = join(fileURLToPath(new URL('.', import.meta.url)), '..', '..')
 
 const app = express();
-app.use(express.static(join(__dirname, '/static')))
+// app.use(express.static(join(__dirname, '/static')))
 
 app.set('view engine', 'pug')
 app.set('views', join(__dirname, 'views'))

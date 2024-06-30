@@ -1,15 +1,19 @@
 {
-  "name": "vite-starter",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vite-express",
   "type": "module",
   "scripts": {
+    "start": "concurrently \"npm run dev\" \"npm run sync\"",
     "dev": "nodemon src/server/main.js -w src/server",
-    "start": "NODE_ENV=development node src/server/main.js",
-    "build": "vite build"
+    "prod": "NODE_ENV=development node src/server/main.js",
+    "build": "vite build",
+    "sync": "node sync.js"
   },
   "devDependencies": {
+    "@prismicio/client": "^7.6.0",
+    "browser-sync": "^3.0.2",
     "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
     "nodemon": "^3.0.1",
     "pug": "^3.0.2",
     "vite": "^5.0.2"

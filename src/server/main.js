@@ -1,11 +1,12 @@
 
 import 'dotenv/config'
-import express from "express";
-import ViteExpress from "vite-express";
-import path from "path";
-import { fileURLToPath } from "url";
 
-import fetch from "node-fetch";
+import express from "express"
+import ViteExpress from "vite-express"
+import path from "path"
+import { fileURLToPath } from "url"
+
+import fetch from "node-fetch"
 import * as prismic from '@prismicio/client'
 
 const __filename = fileURLToPath(new URL('.', import.meta.url))
@@ -50,10 +51,12 @@ const handleRequest = async api => {
 
 app.get('/', async (req, res) => {
   const api = initApi(req)
-  const docs = await handleRequest(api)
+  const content = await handleRequest(api)
+
+  console.log(content)
 
   res.render('pages/home', {
-    ...docs
+    ...content
   })
 })
 
